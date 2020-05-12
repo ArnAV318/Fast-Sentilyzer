@@ -24,9 +24,16 @@ def dispy():
             code=y
     result = YouTubeTranscriptApi.get_transcript(code)
     
-    pprint(result)
+    times=[]
+
+    for a in result:
+        text=a['text']
+        if text.find(search_key)!=-1:
+            times.append([a['start'],a['text']])
     
-    return render_template('disp.html',url=code)
+    print(times)
+    
+    return render_template('disp.html',url=code,listy=times)
 
 if __name__ == '__main__':
    app.debug=True
