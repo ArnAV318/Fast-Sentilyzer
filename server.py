@@ -33,7 +33,7 @@ def dispy():
     
     print(times)
     
-    return render_template('disp.html',url=code,listy=times)
+    return render_template('disp.html',url=code,listy=times,len=len(times))
 
 if __name__ == '__main__':
    app.debug=True

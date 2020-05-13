@@ -33,15 +33,15 @@
         <p> Here is your video </p>
         <br>
         <br>
-        <iframe width="420" height="345" src="https://www.youtube.com/embed/{{url}}?start=49"></iframe>
+        <iframe id="video_frame" name="video" width="420" height="345" src="https://www.youtube.com/embed/{{url}}?start=567"></iframe>
         <br><br>
     </div>
     <div class="col-sm-6" style="background-color:white;">
         <p>Where would you like to jump</p>
         <br><br>
-        {%for a in listy%} 
+        {%for i in range(len)%} 
   
-            <li>{{a[0]}}  :   {{a[1]}}</li> 
+            <li class="{{i}}" onclick="refresh_frame({{listy[i][0]}})">{{listy[i][0]}}  :   {{listy[i][1]}}</li> 
         {%endfor%} 
     </div>
 
@@ -50,6 +50,6 @@
 
 
 
-
+<script type = "text/javascript" src = "{{ url_for('static', filename = 'loadtime.js') }}" ></script>
 </body>
 </html>
