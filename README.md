@@ -3,7 +3,7 @@
 
 <div align="center">
 
-<img src="./media/app-logo.png" width=350px/>
+<img src="https://github.com/arghyadeep99/Fast-Sentilyze/blob/master/media/app-logo.png" width=350px/>
 
 <br>
 
