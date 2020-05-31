@@ -27,37 +27,18 @@
 
 <h1>My First Heading</h1>
 <p>My first paragraph.</p>
-
-<form  id="formy" class="search-box" action="/disp " method="POST"> 
-    <label for="url">Enter the URL here</label><br>
-    <input type="text" id="url" name="url" value=""><br><br>
-
-    <label for="search_text">Enter the words to be searched</label><br>
-    <input type="text" id="search" name="search" value=""><br><br>
-    <input type="submit" value="Submit">
-</form>
-
 <br>
 <br>
 <br>
-<br>
-<br>
-
-
-<p> OR </p>
-<br>
-<br>
-<br>
-<p>If you want to ananlyze the kind of review given in the video</p>
-<br>
-<br>
-<br>
-<form  id="formy" class="search-box" action="/analyze" method="POST"> 
-    <label for="url">Enter the URL here</label><br>
-    <input type="text" id="url" name="url" value=""><br><br>
-    <input type="submit" value="Submit">
-</form>
-
+<p>
+         The predictions for the video are as follows 
+</p>
+<p>
+         Positive : {{positive}}
+</p>
+<p>
+         Negative : {{negative}}
+</p>
 
 </body>
 </html>
