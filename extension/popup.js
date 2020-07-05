@@ -1,37 +1,28 @@
-/*document.addEventListener('DOMContentLoaded', function() {
-    var checkPageButton = document.getElementById('checkPage');
-    checkPageButton.addEventListener('click', function() {
-  
-      chrome.tabs.getSelected(null, function(tab) {
-        d = document;
-  
-        var tag = document.createElement("p");
-        var text = document.createTextNode(tab.url);
-        //chrome.tabs.update({url: 'https://www.tutorialspoint.com/how-to-add-a-new-element-to-html-dom-in-javascript'});
-        tag.appendChild(text);
-        var element = document.getElementById("new");
-        element.appendChild(tag);
-      });
-    }, false);
-  }, false);*/
+
+function fun() {
+  result= urly.split("?")
+  var r = result[0]+"?v="+code+"&t="+parseInt(this.getElementsByTagName('td')[0].innerHTML)+"s";
+  console.log(r);
+  chrome.tabs.getSelected(null, function(tab) {
+    chrome.tabs.update(tab.id, {url: r});
+  });
+}
+
 
 var urly;
+var code;
 chrome.tabs.getSelected(null, function(tab) {
   d = document;
-
-  var tag = document.createElement("p");
-  var text = document.createTextNode(tab.url);
   urly=tab.url;
-  //chrome.tabs.update({url: 'https://www.tutorialspoint.com/how-to-add-a-new-element-to-html-dom-in-javascript'});
-  tag.appendChild(text);
-  var element = document.getElementById("new");
-  element.appendChild(tag);
 });
 
 $(document).ready(function(){
   $("button").click(function(){
-    $.ajax({type: "POST", crossDomain:true,data: {search: 'full stack',url: urly}, headers: {  'Access-Control-Allow-Origin': '*' }, url: "http://127.0.0.1:5000/api", success: function(result){
+    var token = document.getElementById('searchTxt').value;
+    $.ajax({type: "POST", crossDomain:true,data: {search: token,url: urly}, headers: {  'Access-Control-Allow-Origin': '*' }, url: "http://127.0.0.1:5000/api", success: function(result){
       console.log(result);
+      code=result[1];
+      result=result[0];
       var table = document.createElement("table");
       var tr = table.insertRow(-1);
       var col=["time","phrase"]
@@ -48,6 +39,8 @@ $(document).ready(function(){
         tabCell.innerHTML = result[i][0];
         var cabCell = tr.insertCell(-1);
         cabCell.innerHTML = result[i][1];
+        var x=result[i][0];
+        tr.onclick= fun;
 
       }
 

@@ -6,10 +6,11 @@
   "version": "1.0",
 
   "browser_action": {
-   "default_popup": "popup.html"
+   "default_popup": "index.html"
   },
   "content_security_policy": "script-src 'self' https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js; object-src 'self'",
   "permissions": [
-   "activeTab"
+   "activeTab",
+   "tabs"
    ]
 }

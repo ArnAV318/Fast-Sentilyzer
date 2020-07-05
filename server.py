@@ -90,7 +90,8 @@ def api():
             text=a['text']
             if text.find(search_key)!=-1:
                 times.append([a['start'], a['text']])
-        print(times)
+
+        times=[times,code]
         return jsonify(times)
     return '2'
         
